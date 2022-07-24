@@ -89,14 +89,13 @@ public class EmployeeController {
         employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
-        //活取当前用户登录id
+        //获取当前用户登录id
         Long empId = (Long)request.getSession().getAttribute("employee");
         //用户登录id和用户修改时的id
         employee.setCreateUser(empId);
         employee.setUpdateUser(empId);
 
-        //调用新增语句
-        employeeService.save(employee);
+        employeeService.save(employee);//调用新增语句
         return R.success("新增员工成功");
 
     }
