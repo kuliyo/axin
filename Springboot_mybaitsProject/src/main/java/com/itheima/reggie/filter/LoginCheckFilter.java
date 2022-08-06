@@ -1,9 +1,9 @@
 package com.itheima.reggie.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.itheima.reggie.common.BaseContext;
 import com.itheima.reggie.common.R;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.util.AntPathMatcher;
 
 import javax.servlet.*;
@@ -55,6 +55,9 @@ public class LoginCheckFilter implements Filter {
         if (request.getSession().getAttribute("employee") != null){
 
             log.info("用户已登录，用户id为：{}",request.getSession().getAttribute("employee"));
+
+            Long empId = (Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);//使用工具类获取Id
 
             filterChain.doFilter(request,response);
             return;
