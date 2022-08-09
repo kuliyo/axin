@@ -19,4 +19,4 @@ mybatis-plus:
     db-config:
       id-type: ASSIGN_ID
 reggie:
-  path: E:/img/
+  path: E:\BaiduNetdiskDownload\7、黑马程序员瑞吉外卖平台实战开发\瑞吉外卖-资料\1 瑞吉外卖项目\资料\图片资源\
